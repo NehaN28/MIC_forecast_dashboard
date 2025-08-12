@@ -1,0 +1,13 @@
+
+services:
+  - type: web
+    name: mic-awesome-dashboard
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:server --timeout 120
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: DATA_PATH
+        value: data/MIC_params_forecasts_v4_twofold_with_global.xlsx
